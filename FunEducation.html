@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Maths Folmulas</title>
+  <link rel="page-icon" href="images/>favicon.ico">
+  <link rel="stylesheet" href="CSS/stylesheet.css">
+</head>
+
+<body>
+  <p>Area of a Triangle</p>
+  <label for="inputNumbers">Input Numbers</label>
+  <input id="entry" type="inputNumbers" name="" value="">
+  <button id="add" onclick="addArray();" type="Add" name="button">Add</button><br><br>
+
+  <button id="display" onclick="displayNum();" type="button" name="button">Display</button>
+  <div id="d"></div>
+
+
+  <h1>Now we have all three sides , so the area of Triangle is :</h1>
+  <button type="areaTriangle" onclick="areaTriangle();" name="button">Area of Triangle</button>
+  <p id="area"></p>
+  <script type="text/javascript">
+    var d = [];
+
+    function addArray() {
+      var k = document.getElementById("entry");
+      d.push(parseInt(k.value));
+      k.value = " ";
+    }
+
+    function displayNum() {
+      document.getElementById("d").innerHTML = d;
+    }
+
+    function areaTriangle() {
+      var s = (d[0] + d[1] + d[2]) / 2;
+      area = Math.sqrt(s * (s - d[0]) * (s - d[1]) * (s - d[2]));
+      document.getElementById("area").innerHTML = area;
+    }
+  </script>
+
+  <p id="name">Santosh Pant</p>
+
+  <script type="text/javascript">
+    setInterval(changeName, 1000);
+
+    function changeName() {
+      var l = document.getElementById("name");
+      l.innerHTML = "You are Great";
+    }
+  </script>
+
+  <p>Random Number Check</p>
+  <input id="yourNum" type="text" name="" value="">
+  <button type="checking" onclick="randomNumberChecking()" name="button">Check</button>
+  <div id="answer"> </div>
+  <div id="randomNum"> </div>
+  <script type="text/javascript">
+    function randomNumberChecking() {
+      var userNum = document.getElementById("yourNum").value;
+      var num = Math.trunc(Math.random() * 10);
+      document.getElementById("randomNum").innerHTML = num;
+      if (userNum == num) {
+        document.getElementById("answer").innerHTML = " Number Matched";
+      } else {
+        document.getElementById("answer").innerHTML = " Number Not Matched";
+      }
+    }
+  </script>
+
+  <p>Finding Leap Year</p>
+  <input id="yearInput" type="text" name="" value="">
+  <button type="button" onclick="leapYearCheck();" name="button">Check</button>
+  <div id="yearCheck"> </div>
+  <script type="text/javascript">
+    function leapYearCheck() {
+      var userYear = document.getElementById("yearInput").value;
+      if (userYear % 4 === 0) {
+        document.getElementById("yearCheck").innerHTML = "Leap Year";
+      } else {
+        document.getElementById("yearCheck").innerHTML = "Not Leap Year";
+      }
+    }
+  </script>
+
+<!*Enter year between 2014 to 2050 to check 1 Jan is Sunday or not*/>
+  <p>Enter year between 2014 to 2050 to check 1 Jan is Sunday or not</p>
+  <input type="text" id="inputYear" name="" value="">
+  <button type="button" onclick="sundayCheck();" name="button">Check</button>
+  <div id="displayAnswer">
+
+  </div>
+  <script type="text/javascript">
+    function sundayCheck() {
+      var userInputYear = document.getElementById("inputYear").value
+      var gettingDate = new Date(userInputYear, 0, 1);
+      if (gettingDate.getDay() == 0) {
+        document.getElementById("displayAnswer").innerHTML = "In year" + userInputYear + "on 1st Jan is Sunday";
+      } else {
+        document.getElementById("displayAnswer").innerHTML = "Not Sunday";
+      }
+
+    }
+  </script>
+
+
+  <p>calculate days left until next Christmas</p>
+  <input id="Yearss" type="text"  name="" value="">
+  <button type="button" onclick="findingDays();" name="button">Check</button>
+  <div id="daysLeftfromNow"> </div>
+    <script type="text/javascript">
+    function findingDays() {
+      var todayDate=new Date();
+      alert(todayDate);
+      var takingUserYear=document.getElementById("Yearss").value;
+      var Christmas=new Date(takingUserYear,11,25);
+      alert(Christmas);
+
+        var oneDay=(1000*60*60*24);
+        var a=Christmas.getTime();
+        var b= todayDate.getTime();
+        var daysLefttoCmas=Math.ceil((a-b)/oneDay);
+        document.getElementById("daysLeftfromNow").innerHTML=+daysLefttoCmas+"days left for Christmas";
+      }
+    </script>
+    <!Write a JavaScript program to calculate multiplication and division of two numbers>
+     <table>
+       <tr>
+         <td>
+           <label for="">1st Number</label>
+           <input id="firstNum" type="text" name="" value="">
+
+         </td>
+         <tr>
+           <td>
+             <label for="">2nd Number</label>
+             <input id="secondNum" type="text" name="" value="">
+           </td>
+         </tr>
+       </tr>
+       <tr>
+         <td>
+           <button type="button" onclick="multiply();" name="button">multiply</button>
+         </td>
+         <td>
+           <button type="button" onclick="divide();" name="button">divide</button>
+         </td>
+       </tr>
+     </table>
+     <p id="result"></p>
+     <script type="text/javascript">
+     function multiply() {
+       var firstNum=document.getElementById("firstNum").value;
+       var secondNum=document.getElementById("secondNum").value;
+       document.getElementById("result").innerHTML="The result is"+firstNum*secondNum;
+     }
+
+     function divide() {
+       var firstNum=document.getElementById("firstNum").value;
+       var secondNum=document.getElementById("secondNum").value;
+       document.getElementById("result").innerHTML="The result is"+firstNum/secondNum;
+     }
+     </script>
+
+     <!Write a JavaScript program to convert temperatures to and from Celsius, Fahrenheit.  Go to the editor
+[ Formula : c/5 = (f-32)/9 [ where c = temperature in Celsius and f = temperature in Fahrenheit ]>
+
+        <label>Temprature in Celsius</label>
+        <input id="tempCelsius" type="text" name="" value="">
+        <button type="button" onclick="tempFaren();" name="button">Convert to Fahrenheit</button>
+        <p id="resultFaren"> </p>
+        <label>Temprature in Fahrenheit</label>
+        <input id="tempFarenheit" type="text" name="" value="">
+        <button type="button" onclick="tempCel();" name="button">Convert to Celsius</button>
+        <p id="resultCel"> </p>
+
+        <script type="text/javascript">
+          function tempFaren() {
+            var tempCelc= document.getElementById("tempCelsius").value;
+            var farenH= ((tempCelc*9)/5)+32;
+            alert(farenH);
+            document.getElementById("resultFaren").innerHTML="Temprature in Fahrenheit is"+farenH;
+          }
+
+          function tempCel() {
+            var tempFaren=document.getElementById("tempFarenheit").value;
+            var tempCelsius=(((tempFaren-32)*5)/9);
+            alert(tempCelsius);
+            document.getElementById("resultCel").innerHTML="Temprature in Celsius is"+tempCelsius;
+          }
+        </script>
+
+<!Write a JavaScript exercise to create a variable using a user-defined name???(Not Solved Yet)>
+<!Write a JavaScript exercise to get the extension of a filename>
+  <label>Enter file Name</label>
+  <input type="text" id="fileName" name="" value="">
+  <button type="button" onclick="fileExtension();" name="button">File Extension</button>
+  <p id="fileExt"></p>
+  <script type="text/javascript">
+    function fileExtension() {
+      var file_Name=document.getElementById("fileName").value;
+      var extension=file_Name.split('.').pop();
+      alert(extension);
+      document.getElementById("fileExt").innerHTML="Extension of file is " +extension;
+    }
+  </script>
+
+  <!Write a JavaScript program to check two given numbers and return true if one of the number is 50 or if their sum is 50. >
+  <label>First Number</label>
+  <input type="text" id="firstNum" name="" value="">
+  <label>Second Number</label>
+  <input type="text" id="secondNum" name="" value="">
+  <button type="button" onclick="checkCondition();" name="button">check</button>
+  <script type="text/javascript">
+  function checkCondition() {
+    var a=document.getElementById("firstNum").value;
+    var b=document.getElementById("secondNum").value;
+    if (a==50||b==50 ||(a+b)==50){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  </script><br><br>
+
+<!Write a JavaScript program to remove a character at the specified position of a given string and return the new string.>
+    <label>Input your String </label>
+     <input type="text" id="myString" name="" value="">
+     <label>Remove charcter at position</label>
+     <input type="text" id="charPosition" name="" value="">
+     <button type="button" onclick="newString();" name="button">New String</button>
+     <p id="new_String"></p>
+     <script type="text/javascript">
+       function newString() {
+         var a =document.getElementById("myString").value;
+         var b= parseInt(document.getElementById("charPosition").value);
+         alert(b);
+         var part1 = a.substring(0,b);
+         var d=(b+1);
+         alert(d);
+         var part2 = a.substring(d,a.length);
+         alert(part2);
+         var c =(part1+part2);
+         alert(c);
+         document.getElementById("new_String").innerHTML=c;
+       }
+
+     </script>
+
+     <!Write a JavaScript program to create a new string from a given string changing the position of first and last charac>
+     <!The string length must be greater than or equal to 1>
+
+
+
+</body>
+
+</html>
